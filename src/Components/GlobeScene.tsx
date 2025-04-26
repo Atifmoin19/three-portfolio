@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 // Wrapper component to animate the Earth model
 const AnimatedEarth = () => {
   const earthRef = useRef(null);
+  const { isDesktop } = useDeviceType();
 
   // This hook runs on every frame
   useFrame(({ clock }) => {
@@ -22,7 +23,7 @@ const AnimatedEarth = () => {
     }
   });
 
-  return <EarthModel ref={earthRef} scale={3} />;
+  return <EarthModel ref={earthRef} scale={isDesktop ? 2 : 3} />;
 };
 
 const GlobeScene = () => {
@@ -48,6 +49,7 @@ const GlobeScene = () => {
       <Canvas
         style={{
           position: "relative",
+          height: isDesktop ? "80vh" : "auto",
         }}
       >
         <OrbitControls
@@ -56,7 +58,7 @@ const GlobeScene = () => {
           enableRotate={true}
           // autoRotate={false}
         />
-        <ambientLight intensity={0} />
+        <ambientLight intensity={1} />
         <Suspense fallback={<Loader />}>
           <AnimatedEarth />
         </Suspense>
