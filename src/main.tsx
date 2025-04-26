@@ -12,7 +12,7 @@ import AppRoutes from "AppRoutes";
 createRoot(document.getElementById("root")!).render(
   // <StrictMode>
   <ChakraProvider theme={theme}>
-    <Router>
+    <Router basename="/three-portfolio">
       <AppRoutes />
     </Router>
   </ChakraProvider>

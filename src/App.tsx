@@ -121,12 +121,10 @@ function App() {
 
         <Container
           bgImage={bg}
+          position={"relative"}
           backgroundSize={"cover"}
           backgroundPosition={"start"}
-          minH={"100vh"}
           backgroundRepeat={"no-repeat"}
-          justifyContent={"start"}
-          alignItems={"center"}
           overflow={"hidden"}
         >
           <Flex
@@ -140,56 +138,6 @@ function App() {
             top={0}
             left={0}
           >
-            <Flex
-              ref={ref}
-              as={motion.div}
-              position="absolute"
-              initial={{ x: 0, y: 0 }}
-              animate={{
-                x: Math.random() * 400 - 300,
-                y: Math.random() * 400 - 300,
-
-                transition: {
-                  duration: 2 + Math.random() * 3,
-                  ease: "easeInOut",
-                  delay: (count / 4) * 0.1,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                },
-              }}
-              width="400px"
-              top={"30%"}
-              right={0}
-              height="400px"
-              borderRadius="full"
-              background="radial-gradient(circle at 30% 30%, #8a2be2, #4b0082)"
-              boxShadow="0 10px 30px rgba(0, 0, 0, 0.5)"
-              overflow="hidden"
-              _before={{
-                content: '""',
-                position: "absolute",
-                top: "5%",
-                left: "10%",
-                width: "30%",
-                height: "20%",
-                borderRadius: "full",
-                background: "rgba(255, 255, 255, 0.3)",
-                filter: "blur(5px)",
-              }}
-              _after={{
-                content: '""',
-                position: "absolute",
-                bottom: "10%",
-                right: "15%",
-                width: "40%",
-                height: "10%",
-                background: "rgba(0, 0, 0, 0.2)",
-                filter: "blur(8px)",
-                transform: "rotate(-15deg)",
-              }}
-              transform={"perspective(800px) rotateY(-15deg) rotateX(10deg)"}
-            />
-
             <Grid
               gridTemplateColumns={{
                 lg: "repeat(4,150px)",
@@ -211,7 +159,7 @@ function App() {
                             opacity: 1,
                             translateY: "0%",
                             transition: {
-                              duration: 0.2,
+                              duration: 0.1,
                               delay: idx * 0.05,
                               ease: "easeOut",
                             },

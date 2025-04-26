@@ -9,80 +9,123 @@ const HeroSection = () => {
   const inView = useInView({ targetRef: ref });
 
   return (
-    <Flex
-      zIndex={2}
-      w={"100%"}
-      h={"100%"}
-      position={"relative"}
-      mt={{ lg: "0rem", md: "0rem", sm: "4rem", xs: "4rem" }}
-      gap={{ lg: "4rem", md: "3rem", sm: "2rem", xs: "1rem" }}
-      px={{ lg: "4rem", md: "3rem", sm: "2rem", xs: "1rem" }}
-      alignItems={"start"}
-      ref={ref}
-    >
-      <Flex justifyContent={"start"} alignItems={"center"} direction={"column"}>
+    <Flex direction={"column"}>
+      <Flex
+        as={motion.div}
+        initial={{ y: 20, opacity: 0 }}
+        animate={
+          inView
+            ? {
+                y: 0,
+                opacity: 1,
+                transition: {
+                  delay: 0.5,
+                },
+              }
+            : {}
+        }
+        position={"absolute"}
+        bottom={"10%"}
+        border={"2px solid #fff"}
+        rounded={"full"}
+        w={"30px"}
+        height={"60px"}
+        left={"50%"}
+        zIndex={9999}
+        cursor={"pointer"}
+        justifyContent={"center"}
+        alignItems={"end"}
+        onClick={() =>
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: "smooth",
+          })
+        }
+        p={".1rem"}
+        transform={"translate(50%,0)"}
+      >
         <Flex
           w={"20px"}
           h={"20px"}
-          aspectRatio={"1/1"}
+          className="scroller"
+          bg={"#fff"}
           rounded={"full"}
-          bg={"primary.500"}
-        ></Flex>
-        <Flex
-          mt={"-2px"}
-          w={"5px"}
-          h={"300px"}
-          bg={"linear-gradient(to bottom, var(--bg1), transparent)"}
         ></Flex>
       </Flex>
-      <Flex color={"#fff"} direction={"column"} justifyContent={"start"}>
-        <Text
-          as={motion.div}
-          className="maintext"
-          lineHeight={"1em"}
-          initial={{ transform: "translateY(100%)", opacity: 0 }}
-          animate={
-            inView
-              ? {
-                  transform: "translateY(0%)",
-                  opacity: 1,
-                  transition: { duration: 0.5 },
-                }
-              : {}
-          }
-          fontSize={"6em"}
-        >
-          {" "}
-          Hi, I'm{" "}
-          <Text as={"span"} color={"primary.500"}>
-            Atif
-          </Text>
-        </Text>
-        <Text
-          as={motion.div}
-          initial={{ transform: "translateY(100%)", opacity: 0 }}
-          animate={
-            inView
-              ? {
-                  transform: "translateY(0%)",
-                  opacity: 1,
-                  transition: { duration: 0.5 },
-                }
-              : {}
-          }
-          className="text-[#dfd9ff] font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] mt-2 text-white-100"
-        >
-          I develop modern, user <br />
-          interfaces and web applications
-        </Text>
+
+      <Flex
+        zIndex={2}
+        w={"100%"}
+        h={"100%"}
+        position={"relative"}
+        mt={{ lg: "8rem", md: "8rem", sm: "5rem", xs: "5rem" }}
+        gap={{ lg: "4rem", md: "3rem", sm: "2rem", xs: "1rem" }}
+        px={{ lg: "4rem", md: "3rem", sm: "2rem", xs: "1rem" }}
+        alignItems={"start"}
+        ref={ref}
+      >
         <Flex
-          p={"1rem"}
-          w={{ lg: "600px", md: "600px", sm: "100%", xs: "100%" }}
-          h={"400px"}
+          justifyContent={"start"}
+          alignItems={"center"}
+          direction={"column"}
         >
-          <SystemScene />
+          <Flex
+            w={"20px"}
+            h={"20px"}
+            aspectRatio={"1/1"}
+            rounded={"full"}
+            bg={"primary.500"}
+          ></Flex>
+          <Flex
+            mt={"-2px"}
+            w={"5px"}
+            h={"300px"}
+            bg={"linear-gradient(to bottom, var(--bg1), transparent)"}
+          ></Flex>
+        </Flex>
+        <Flex color={"#fff"} direction={"column"} justifyContent={"start"}>
+          <Text
+            as={motion.div}
+            className="maintext"
+            lineHeight={"1em"}
+            initial={{ transform: "translateY(100%)", opacity: 0 }}
+            animate={
+              inView
+                ? {
+                    transform: "translateY(0%)",
+                    opacity: 1,
+                    transition: { duration: 0.5 },
+                  }
+                : {}
+            }
+            fontSize={"6em"}
+          >
+            {" "}
+            Hi, I'm{" "}
+            <Text as={"span"} color={"primary.500"}>
+              Atif
+            </Text>
+          </Text>
+          <Text
+            as={motion.div}
+            initial={{ transform: "translateY(100%)", opacity: 0 }}
+            animate={
+              inView
+                ? {
+                    transform: "translateY(0%)",
+                    opacity: 1,
+                    transition: { duration: 0.5 },
+                  }
+                : {}
+            }
+            className="text-[#dfd9ff] font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] mt-2 text-white-100"
+          >
+            I develop modern, user <br />
+            interfaces and web applications
+          </Text>
         </Flex>
       </Flex>
+      <SystemScene />
     </Flex>
   );
 };

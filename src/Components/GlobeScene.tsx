@@ -22,7 +22,7 @@ const AnimatedEarth = () => {
     }
   });
 
-  return <EarthModel scale={2} ref={earthRef} />;
+  return <EarthModel ref={earthRef} scale={3} />;
 };
 
 const GlobeScene = () => {
@@ -39,40 +39,28 @@ const GlobeScene = () => {
           : {}
       }
       as={motion.div}
-      w={"100%"}
-      minW={{ lg: "500px", md: "500px", sm: "100%", xs: "100%" }}
+      w={{ lg: "500px", md: "500px", sm: "auto", xs: "auto" }}
       h={"100%"}
-      minH={"80vh"}
+      minH={{ lg: "80vh", md: "300px", xs: "auto", sm: "auto" }}
       position={"relative"}
-      zIndex={99999}
+      mx={"auto"}
     >
       <Canvas
         style={{
-          minHeight: "80vh",
-          position: isDesktop ? "absolute" : "relative",
-          background: "transparent",
-          top: "0%",
-          right: "0",
+          position: "relative",
         }}
       >
         <OrbitControls
+          maxPolarAngle={Math.PI / 3}
           enableZoom={false}
           enableRotate={true}
           // autoRotate={false}
         />
-        <ambientLight intensity={10} />
+        <ambientLight intensity={0} />
         <Suspense fallback={<Loader />}>
           <AnimatedEarth />
         </Suspense>
         <Environment preset="sunset" />
-        {/* <ContactShadows
-          position={[0, -2.5, 0]}
-          opacity={0.8}
-          scale={10}
-          blur={2}
-          far={10}
-          color={"purple"}
-        /> */}
       </Canvas>
     </Flex>
   );
