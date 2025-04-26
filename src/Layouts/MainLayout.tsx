@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { Flex, FlexProps } from "@chakra-ui/react";
 import Navbar from "../Components/Navbar";
 

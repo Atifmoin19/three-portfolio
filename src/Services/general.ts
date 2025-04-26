@@ -1,11 +1,11 @@
-export const onlyAllowTypingNumbers = (e) => {
+export const onlyAllowTypingNumbers = (e: any) => {
   if (!(e.key === "Backspace" || e.key === "Tab" || e.key === "ArrowDown")) {
     if (e.key.charCodeAt(0) < 48 || e.key.charCodeAt(0) > 57) {
       e.preventDefault();
     }
   }
 };
-export const onlyAllowAlphaNumeric = (e) => {
+export const onlyAllowAlphaNumeric = (e: any) => {
   if (
     (e.key.charCodeAt(0) > 47 && e.key.charCodeAt(0) < 58) ||
     (e.key.charCodeAt(0) > 64 && e.key.charCodeAt(0) < 91) ||
@@ -16,7 +16,7 @@ export const onlyAllowAlphaNumeric = (e) => {
     e.preventDefault();
   }
 };
-export const onlyAllowTypingAlphabet = (e) => {
+export const onlyAllowTypingAlphabet = (e: any) => {
   if (
     (e.key.charCodeAt(0) > 64 && e.key.charCodeAt(0) < 91) ||
     (e.key.charCodeAt(0) > 96 && e.key.charCodeAt(0) < 123) ||

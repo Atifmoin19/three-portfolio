@@ -1,12 +1,7 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { FontSizeBody, FontSizeHeading } from "Constants";
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-import React, { useRef } from "react";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 import useInView from "Services/CustomHooks/useInView";
 import IceBox from "./IceBox";
 import Stars from "./Stars";

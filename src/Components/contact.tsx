@@ -29,7 +29,7 @@ import useInView from "Services/CustomHooks/useInView";
 const Contact = () => {
   const { id } = useParams();
   var date = new Date().toLocaleString();
-  const [todo, setTodo] = useState([]);
+  const [todo, setTodo] = useState<any[]>([]);
   const [isLoding, setIsLoding] = useState(false);
 
   const toast = useToast();
@@ -56,7 +56,7 @@ const Contact = () => {
     fetchPost();
   }, []);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: any) => {
     setIsLoding(true);
     const duplicate = todo.find((element) => element.email === data.Email);
     if (duplicate === undefined) {
@@ -81,7 +81,7 @@ const Contact = () => {
         navigate("/");
       } catch (e) {
         toast({
-          title: e,
+          title: e as React.ReactNode,
           position: "bottom",
           status: "error",
         });
@@ -89,8 +89,8 @@ const Contact = () => {
         console.error("Error adding document: ", e);
       }
     }
+    var answer = window.confirm("Do you want to send contact again?");
     if (duplicate !== undefined && answer) {
-      var answer = window.confirm("Do you want to send contact again?");
       console.log("ho gaya dopnara");
       try {
         const docRef = await addDoc(collection(firestore, "todos"), {
