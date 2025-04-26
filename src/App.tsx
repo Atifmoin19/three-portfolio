@@ -1,4 +1,4 @@
-import { Box, Flex, Grid } from "@chakra-ui/react";
+import { Box, Flex, Grid, Text } from "@chakra-ui/react";
 import MainLayout from "./Layouts/MainLayout";
 import Container from "Components/Container";
 import bg from "assets/wall.png";
@@ -18,6 +18,9 @@ import SystemScene from "Components/SystemScene";
 import Cube from "Components/Cube";
 import Contact from "Components/contact";
 import Stars from "Components/Stars";
+
+import ComingSoon from "Components/ComingSoon";
+import { FontSizeBody, FontSizeHeading } from "Constants";
 
 function App() {
   const ref = useRef(null);
@@ -181,6 +184,22 @@ function App() {
         </Container>
         <Container minH={"100vh"}>
           <WorkExperience />
+        </Container>
+        <Container
+          minH={"100vh"}
+          justifyContent={"center"}
+          direction={"column"}
+          alignItems={"center"}
+          color={"#fff"}
+        >
+          <Text className="maintext" fontSize={FontSizeHeading}>
+            Projects
+          </Text>
+          <Text fontSize={FontSizeBody} color={"secondary.500"}>
+            Project will be listed soon..
+          </Text>
+          <ComingSoon />
+          {/* <AboutSection /> */}
         </Container>
         <Container
           minH={"100vh"}

@@ -13,19 +13,7 @@ const WorkExperience = () => {
     {
       role: "Software Engineer - Frontend",
       company: "Zopper",
-      Exp: "2 years",
-      logo: "https://assets.entrepreneur.com/content/3x2/2000/1663656290-Untitleddesign96.jpg",
-    },
-    {
-      role: "Software Engineer - Frontend",
-      company: "Paytm",
-      Exp: "1 years",
-      logo: "https://assets.entrepreneur.com/content/3x2/2000/1663656290-Untitleddesign96.jpg",
-    },
-    {
-      role: "Software Engineer - Frontend",
-      company: "PhonePe",
-      Exp: "2 years",
+      Exp: "2.4 years",
       logo: "https://assets.entrepreneur.com/content/3x2/2000/1663656290-Untitleddesign96.jpg",
     },
   ];

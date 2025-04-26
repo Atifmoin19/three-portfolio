@@ -91,10 +91,10 @@ const AboutSection = () => {
           fontSize={FontSizeBody}
         >
           I'm a skilled software developer with experience in JavaScript, and
-          expertise in frameworks like React, Node.js, and Three.js. I'm a quick
-          learner and collaborate closely with clients to create efficient,
-          scalable, and user-friendly solutions that solve real-world problems.
-          Let's work together to bring your ideas to life!
+          expertise in frameworks like React, and Next.js. I'm a quick learner
+          and collaborate closely with clients to create efficient, scalable,
+          and user-friendly solutions that solve real-world problems. Let's work
+          together to bring your ideas to life!
         </Text>
       </Flex>
       <Flex
