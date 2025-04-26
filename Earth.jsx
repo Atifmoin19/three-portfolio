@@ -12,7 +12,9 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 
 export default function Model(props) {
   const group = React.useRef();
-  const { nodes, materials, animations } = useGLTF("/earth.gltf");
+  const { nodes, materials, animations } = useGLTF(
+    "/three-portfolio/earth.gltf"
+  );
   const { actions } = useAnimations(animations, group);
   return (
     <group ref={group} {...props} dispose={null}>
