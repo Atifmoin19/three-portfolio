@@ -14,7 +14,7 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF("/three-portfolio/System.gltf");
   return (
     <group {...props} dispose={null}>
-      <group scale={0.01}>
+      <group>
         <mesh
           geometry={nodes["Object_782_OnTheFly-bg_0"].geometry}
           material={materials["Material.074_40"]}
