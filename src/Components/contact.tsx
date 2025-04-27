@@ -22,7 +22,7 @@ import {
   mobileNumRegex,
   emailRegex,
 } from "Services/general";
-import { FontSizeBody, FontSizeHeading } from "Constants";
+import { FontSizeBody, FontSizeHeading } from "Consts";
 import { motion } from "framer-motion";
 import useInView from "Services/CustomHooks/useInView";
 
@@ -124,11 +124,9 @@ const Contact = () => {
     <Flex
       ref={ref}
       ml={{ lg: "2rem", md: "2rem", sm: "0", xs: "0" }}
-      initial={{ x: -100, opacity: 0 }}
+      initial={{ x: -30, opacity: 0 }}
       animate={
-        inView
-          ? { x: 0, opacity: 1, transition: { ease: "easeIn", duration: 0.2 } }
-          : {}
+        inView ? { x: 0, opacity: 1, transition: { duration: 0.3 } } : {}
       }
       as={motion.div}
       w={{ lg: "500px", md: "100%", sm: "100%", xs: "100%" }}

@@ -20,7 +20,8 @@ import Contact from "Components/contact";
 import Stars from "Components/Stars";
 
 import ComingSoon from "Components/ComingSoon";
-import { FontSizeBody, FontSizeHeading } from "Constants";
+import { FontSizeBody, FontSizeHeading } from "Consts";
+import ProjectMain from "Components/Projects";
 
 function App() {
   const ref = useRef(null);
@@ -121,7 +122,7 @@ function App() {
             })}
           </Grid>
         </Container> */}
-
+        {/* hero section */}
         <Container
           bgImage={bg}
           position={"relative"}
@@ -155,12 +156,12 @@ function App() {
                   <Box
                     as={motion.div}
                     key={idx}
-                    initial={{ opacity: 0, translateY: "20%" }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={
                       inViewIceRef
                         ? {
                             opacity: 1,
-                            translateY: "0%",
+                            y: 0,
                             transition: {
                               duration: 0.1,
                               delay: idx * 0.05,
@@ -178,29 +179,42 @@ function App() {
           </Flex>
           <HeroSection />
         </Container>
-
+        {/* about section */}
         <Container minH={"100vh"} justifyContent={"start"} alignItems={"start"}>
           <AboutSection />
         </Container>
+        {/* work experience */}
         <Container minH={"100vh"}>
           <WorkExperience />
         </Container>
+        {/* Project experience */}
         <Container
           minH={"100vh"}
-          justifyContent={"center"}
+          justifyContent={"start"}
           direction={"column"}
           alignItems={"center"}
+          overflowX={"hidden"}
           color={"#fff"}
         >
-          <Text className="maintext" fontSize={FontSizeHeading}>
+          <Text mb={"2rem"} className="maintext" fontSize={FontSizeHeading}>
             Projects
           </Text>
-          <Text fontSize={FontSizeBody} color={"secondary.500"}>
-            Project will be listed soon..
+          <Text
+            textAlign={"center"}
+            mb={"2rem"}
+            fontSize={FontSizeBody}
+            color={"secondary.500"}
+          >
+            Following projects showcase my skills and experience through
+            real-world examples of my work. Each project is described with links
+            to live demos. It reflects my ability to solve complex problems,
+            work with different technologies, and manage projects effectively.
           </Text>
-          <ComingSoon />
+          <ProjectMain />
+
           {/* <AboutSection /> */}
         </Container>
+        {/* contact */}
         <Container
           minH={"100vh"}
           // overflow={"visible"}

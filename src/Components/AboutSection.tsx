@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import React, { useRef } from "react";
 import useInView from "Services/CustomHooks/useInView";
 import TiltCard from "./TiltCard";
-import { FontSizeBody, FontSizeHeading } from "Constants";
+import { FontSizeBody, FontSizeHeading } from "Consts";
 
 const AboutSection = () => {
   const developmentData = [

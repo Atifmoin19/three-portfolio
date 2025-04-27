@@ -11,7 +11,8 @@ import { useDeviceType } from "Services/CustomHooks/useDeviceType";
 // Wrapper component to animate the system model
 const AnimatedSystem = () => {
   const systemRef = useRef(null);
-  return <SystemModel ref={systemRef} scale={0.3} />;
+  const { isDesktop } = useDeviceType();
+  return <SystemModel ref={systemRef} scale={isDesktop ? 0.3 : 0.3} />;
 };
 
 const SystemScene = () => {
@@ -20,10 +21,11 @@ const SystemScene = () => {
   return (
     <Flex
       w={"100%"}
-      h={"70vh"}
+      h={{ lg: "70vh", md: "70vh", sm: "30vh", xs: "30vh" }}
       position={"absolute"}
       zIndex={9}
-      bottom={0}
+      bottom={isDesktop ? 0 : "50%"}
+      transform={isDesktop ? "" : "translate(0,50%)"}
       left={0}
     >
       <Canvas

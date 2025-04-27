@@ -1,11 +1,13 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
-import { FontSizeBody, FontSizeHeading } from "Constants";
+
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import useInView from "Services/CustomHooks/useInView";
 import IceBox from "./IceBox";
 import Stars from "./Stars";
 import { useDeviceType } from "Services/CustomHooks/useDeviceType";
+
+import { FontSizeHeading, FontSizeBody } from "Consts";
 
 const WorkExperience = () => {
   const { isMobile } = useDeviceType();
@@ -90,16 +92,22 @@ const WorkExperience = () => {
             >
               <Box
                 as={motion.div}
-                initial={{ x: idx % 2 === 0 ? "-10%" : "10%", opacity: 0 }}
-                animate={isInViewJob ? { x: "0%", opacity: 1 } : {}}
+                initial={{
+                  x: !isMobile ? (idx % 2 === 0 ? -10 : 10) : 10,
+                  opacity: 0,
+                }}
+                animate={
+                  isInViewJob
+                    ? { x: "0%", opacity: 1, transition: { duration: 0.4 } }
+                    : {}
+                }
               >
-                {" "}
                 <IceBox
                   width={{
                     lg: "400px",
                     md: "300px",
                     sm: "300px",
-                    xs: "250px",
+                    xs: "300px",
                   }}
                   height={"auto"}
                   intensity={0.1}

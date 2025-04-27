@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 import useInView from "Services/CustomHooks/useInView";
 import SystemScene from "./SystemScene";
+import { FontSizeHeading } from "Consts";
 
 const HeroSection = () => {
   const ref = useRef(null);
@@ -58,7 +59,7 @@ const HeroSection = () => {
         w={"100%"}
         h={"100%"}
         position={"relative"}
-        mt={{ lg: "8rem", md: "8rem", sm: "5rem", xs: "5rem" }}
+        mt={{ lg: "8rem", md: "8rem", sm: "8rem", xs: "8rem" }}
         gap={{ lg: "4rem", md: "3rem", sm: "2rem", xs: "1rem" }}
         px={{ lg: "4rem", md: "3rem", sm: "2rem", xs: "1rem" }}
         alignItems={"start"}
@@ -79,7 +80,7 @@ const HeroSection = () => {
           <Flex
             mt={"-2px"}
             w={"5px"}
-            h={"300px"}
+            h={{ lg: "300px", md: "300px", sm: "150px", xs: "150px" }}
             bg={"linear-gradient(to bottom, var(--bg1), transparent)"}
           ></Flex>
         </Flex>
@@ -88,17 +89,17 @@ const HeroSection = () => {
             as={motion.div}
             className="maintext"
             lineHeight={"1em"}
-            initial={{ transform: "translateY(100%)", opacity: 0 }}
+            initial={{ x: 40, opacity: 0 }}
             animate={
               inView
                 ? {
-                    transform: "translateY(0%)",
+                    x: 0,
                     opacity: 1,
-                    transition: { duration: 0.5 },
+                    transition: { duration: 0.3 },
                   }
                 : {}
             }
-            fontSize={"6em"}
+            fontSize={FontSizeHeading}
           >
             {" "}
             Hi, I'm{" "}
@@ -125,7 +126,13 @@ const HeroSection = () => {
           </Text>
         </Flex>
       </Flex>
-      <SystemScene />
+      <Flex
+        as={motion.div}
+        initial={{ opacity: 0 }}
+        animate={inView ? { opacity: 1 } : {}}
+      >
+        <SystemScene />
+      </Flex>
     </Flex>
   );
 };

@@ -14,15 +14,6 @@ const AnimatedEarth = () => {
   const earthRef = useRef(null);
   const { isDesktop } = useDeviceType();
 
-  // This hook runs on every frame
-  useFrame(({ clock }) => {
-    // Rotate the earth model based on elapsed time
-    if (earthRef.current) {
-      earthRef.current.rotation.y = clock.getElapsedTime() * 0.4;
-      earthRef.current.rotation.x = clock.getElapsedTime() * 0.01;
-    }
-  });
-
   return <EarthModel ref={earthRef} scale={isDesktop ? 2 : 3} />;
 };
 
@@ -49,19 +40,21 @@ const GlobeScene = () => {
       <Canvas
         style={{
           position: "relative",
-          height: isDesktop ? "80vh" : "auto",
+          height: isDesktop ? "80vh" : "40vh",
         }}
       >
         <OrbitControls
           maxPolarAngle={Math.PI / 3}
           enableZoom={false}
           enableRotate={true}
-          // autoRotate={false}
+          autoRotate
         />
         <ambientLight intensity={1} />
-        <Suspense fallback={<Loader />}>
-          <AnimatedEarth />
-        </Suspense>
+        {inView && (
+          <Suspense fallback={<Loader />}>
+            <AnimatedEarth />
+          </Suspense>
+        )}
         <Environment preset="sunset" />
       </Canvas>
     </Flex>
