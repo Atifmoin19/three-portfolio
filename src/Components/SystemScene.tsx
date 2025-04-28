@@ -42,7 +42,7 @@ const SystemScene = () => {
         <Suspense fallback={<Loader />}>
           <AnimatedSystem />
         </Suspense>
-        <ambientLight intensity={0.04} />
+        <ambientLight intensity={1} />
         <pointLight intensity={1} />
       </Canvas>
     </Flex>

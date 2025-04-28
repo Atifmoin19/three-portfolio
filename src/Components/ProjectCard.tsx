@@ -3,17 +3,27 @@ import React, { useRef } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import dummyImage from "assets/dummyImage.png";
 import { FontSizeBody } from "Consts";
+import { motion } from "framer-motion";
+import useInView from "Services/CustomHooks/useInView";
 
 const ProjectCard = (props: any) => {
-  const { data, id, isAnimation } = props;
+  const { data, id } = props;
+  const ref = useRef(null);
   const { image, projectType, projectName, link } = data;
+  const inView = useInView({ targetRef: ref, offset: "100px" });
 
   return (
     <>
       <Flex
+        ref={ref}
+        as={motion.div}
+        initial={{ x: id % 2 === 0 ? -40 : 40, opacity: 0 }}
+        animate={
+          inView ? { x: 0, opacity: 1, transition: { duration: 0.3 } } : {}
+        }
         flexBasis={{ lg: "auto", md: "auto", sm: "100%", xs: "100%" }}
         position={"relative"}
-        className={`projectCardMain ${isAnimation ? "slideInAnimation" : ""}`}
+        className={`projectCardMain`}
         style={{ animationDelay: `${0.1 * id}s` }}
         w={{ lg: "300px", md: "300px", sm: "100%", xs: "100%" }}
         minH={projectName ? "300px" : "fit-content"}
